@@ -7,31 +7,23 @@ Created on Tue Mar 21 08:44:58 2017
 """
 
 import twitter_manager
-import datetime
-import sh
+import weekdatetime
+import random
 
-date = datetime.datetime.now()
+day = weekdatetime.Weekdatetime().weekday_today()
 
-today = date.weekday()
+tManager = twitter_manager.Twitter_manager()
+tManager.create_api_instance()
+friends = tManager.get_friends()
 
-def week(day):
-    return {
-            0: "Monday",
-            1: "Tuesday",
-            2: "Wednesday",
-            3: "Thursday",
-            4: "Friday",
-            5: "Saturday",
-            6: "Sunday",
-            }.get(day, "Doomsday")
-    
-print("Today is {0} and so".format(week(today)))
+screen_names = []
 
-sh.bash('/Users/af/Python/my_twitter_experiment/runJava.sh')
+for u in friends:
+    screen_names.append( "@"+u.screen_name )
 
-sh.git.commit("-a", "-m", 'Added a bash script to compile java programs when running main.py, just in case it it needed')
-print(sh.git.branch())
-sh.git.push('origin', 'callshellcomannds')
+randomFriend = random.randint(0, len(screen_names) - 1)
+tManager.update('Hey {0}! It\'s the first {1} of the rest of your life! Carpe diem!'.format(screen_names[randomFriend], day))
+
 
 #commit this
 
