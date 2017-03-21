@@ -9,8 +9,10 @@ Created on Tue Mar 21 08:44:58 2017
 import twitter_manager
 import weekdatetime
 import random
+import smalandsk
 
 day = weekdatetime.Weekdatetime().weekday_today()
+nameGenerator = smalandsk.Smalandsk_ortsnamnsgenerator()
 
 tManager = twitter_manager.Twitter_manager()
 tManager.create_api_instance()
@@ -22,7 +24,7 @@ for u in friends:
     screen_names.append( "@"+u.screen_name )
 
 randomFriend = random.randint(0, len(screen_names) - 1)
-tManager.update('Hey {0}! It\'s the first {1} of the rest of your life! Carpe diem!'.format(screen_names[randomFriend], day))
+tManager.update('Om du, {0}, tänker bygga en ny by i Småland, så kan den heta {1}. #småland #ortsnamn #ortsnamnsgeneratorn'.format(screen_names[randomFriend], nameGenerator.generate()))
 
 
 #commit this
