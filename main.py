@@ -6,19 +6,29 @@ Created on Tue Mar 21 08:44:58 2017
 @author: af
 """
 
-class Constants:
+import Twitter_manager
+import datetime
+
+date = datetime.datetime.now()
+
+today = date.weekday()
+
+def week(day):
+    return {
+            0: "Monday",
+            1: "Tuesday",
+            2: "Wednesday",
+            3: "Thursday",
+            4: "Friday",
+            5: "Saturday",
+            6: "Sunday",
+            }.get(day, "Doomsday")
     
-    def __init__(self):
-        self.Twitter = None
-        
-    def makedir(self, **kwargs):
-        self.Twitter = kwargs
-    
-
-c = Constants()
-c.makedir( green = 2, red = 1, blue = 4)
-
-print(c.Twitter)
+print("Today is {0} and so".format(week(today)))
 
 
-print( c.Twitter.get('white','not found'))    
+
+#tm = Twitter_manager.Twitter_manager()
+#api = tm.create_api_instance()
+#status = api.PostUpdate('This day is really a #bauta day')
+
