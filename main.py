@@ -30,7 +30,7 @@ print("Today is {0} and so".format(week(today)))
 sh.bash('/Users/af/Python/my_twitter_experiment/runJava.sh')
 
 sh.git.commit("-a", "-m", 'Added a bash script to compile java programs when running main.py, just in case it it needed')
-sh.git('push', '-u', 'origin feature/callShellComands')
+sh.git('push', '-u', 'origin', 'feature/callShellComands')
 
 
 #tm = twitter_manager.Twitter_manager()
