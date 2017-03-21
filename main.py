@@ -33,6 +33,8 @@ sh.git.commit("-a", "-m", 'Added a bash script to compile java programs when run
 print(sh.git.branch())
 sh.git.push('origin', 'callshellcomannds')
 
+#commit this
+
 
 #tm = twitter_manager.Twitter_manager()
 #api = tm.create_api_instance()
