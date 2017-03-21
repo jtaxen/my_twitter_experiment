@@ -24,8 +24,8 @@ class Twitter_manager:
                           consumer_secret = self.consumer_key_secret,
                           access_token_key = self.access_token,
                           access_token_secret = self.access_token_secret)
-        #if api.VerifyCredentials() == None:
-        #    raise CredentialVerificationError('Credentials could not be verified.')
+        if api.VerifyCredentials() == None:
+            raise CredentialVerificationError('Credentials could not be verified.')
             
         return api
             
