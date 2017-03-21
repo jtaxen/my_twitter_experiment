@@ -6,19 +6,31 @@ Created on Tue Mar 21 08:44:58 2017
 @author: af
 """
 
-class Constants:
-    
-    def __init__(self):
-        self.Twitter = None
-        
-    def makedir(self, **kwargs):
-        self.Twitter = kwargs
-    
+import twitter_manager
+import weekdatetime
+import random
+import smalandsk
 
-c = Constants()
-c.makedir( green = 2, red = 1, blue = 4)
+day = weekdatetime.Weekdatetime().weekday_today()
+nameGenerator = smalandsk.Smalandsk_ortsnamnsgenerator()
 
-print(c.Twitter)
+tManager = twitter_manager.Twitter_manager()
+tManager.create_api_instance()
+friends = tManager.get_friends()
+
+screen_names = []
+
+for u in friends:
+    screen_names.append( "@"+u.screen_name )
+
+randomFriend = random.randint(0, len(screen_names) - 1)
+tManager.update('Om du, {0}, tänker bygga en ny by i Småland, så kan den heta {1}. #småland #ortsnamn #ortsnamnsgeneratorn'.format(screen_names[randomFriend], nameGenerator.generate()))
 
 
-print( c.Twitter.get('white','not found'))    
+#commit this
+
+
+#tm = twitter_manager.Twitter_manager()
+#api = tm.create_api_instance()
+#status = api.PostUpdate('This day is really a #bauta day')
+
