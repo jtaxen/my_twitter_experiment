@@ -21,7 +21,7 @@ friends = tManager.get_friends()
 screen_names = []
 
 for u in friends:
-    screen_names.append( "@"+u.screen_name )
+   screen_names.append( "@"+u.screen_name )
 
 randomFriend = random.randint(0, len(screen_names) - 1)
 tManager.update('Om du, {0}, tänker bygga en ny by i Småland, så kan den heta {1}. #småland #ortsnamn #ortsnamnsgeneratorn'.format(screen_names[randomFriend], nameGenerator.generate()))
