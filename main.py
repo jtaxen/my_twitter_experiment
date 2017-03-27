@@ -20,6 +20,7 @@ friends = tManager.get_friends()
 
 screen_names = []
 
+
 for u in friends:
    screen_names.append( "@"+u.screen_name )
 
